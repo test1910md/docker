@@ -1,0 +1,15 @@
+version: '3'
+services:
+    server:
+        #type of docker driver where container can user dockers host, whitout self IPadress
+        network_mode: host
+        #build docker image from dockerfile, value is the path
+        build: server/
+        #usage of host ports
+        ports:
+          - "5000:5000"
+    client:
+        network_mode: host
+        build: client/
+        command: python client.py
+        
